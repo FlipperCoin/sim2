@@ -1,0 +1,5 @@
+work/*
+mul32x32_arith.sv/*
+mul32x32_fsm.sv/*
+mul32x32_test.sv/*
+*.wlf

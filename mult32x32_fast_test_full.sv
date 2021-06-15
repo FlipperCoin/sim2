@@ -1,5 +1,5 @@
 // 32X32 Multiplier test template
-module mult32x32_fast_test;
+module mult32x32_fast_test_full;
 
     logic clk;            // Clock
     logic reset;          // Reset
@@ -22,7 +22,7 @@ module mult32x32_fast_test;
         start = 1'b0;
 
         reset = 1'b1;
-        repeat(5) begin
+        repeat(4) begin
             @(posedge clk);
         end
         reset = 1'b0;
@@ -47,8 +47,9 @@ module mult32x32_fast_test;
 
         @(posedge clk);
 
-        a = 32'd208447599 & 32'hffff;
-        b = 32'd305014243 & 32'hffff;
+        // TODO
+        a = 32'b1010100001101111;
+        b = 32'b0010010111100011;
         
         @(posedge clk);
 
@@ -64,6 +65,73 @@ module mult32x32_fast_test;
         while (busy == 1'b1) begin
             @(posedge clk);
         end
+
+
+        @(posedge clk);
+
+        // TODO
+        a = 32'b011011001010100001101111;
+        b = 32'b0010010111100011;
+        
+        @(posedge clk);
+
+        start = 1'b1;
+
+        @(posedge clk);
+
+        start = 1'b0;
+        
+        while(busy == 1'b0) begin
+            @(posedge clk);
+        end
+        while (busy == 1'b1) begin
+            @(posedge clk);
+        end
+
+
+        @(posedge clk);
+
+        // TODO
+        a = 32'b011011001010100001101111;
+        b = 32'b00010010001011100010010111100011;
+        
+        @(posedge clk);
+
+        start = 1'b1;
+
+        @(posedge clk);
+
+        start = 1'b0;
+
+        while(busy == 1'b0) begin
+            @(posedge clk);
+        end
+        while (busy == 1'b1) begin
+            @(posedge clk);
+        end
+
+
+        @(posedge clk);
+
+        // TODO
+        a = 32'b00001100011011001010100001101111;
+        b = 32'b0010010111100011;
+        
+        @(posedge clk);
+
+        start = 1'b1;
+
+        @(posedge clk);
+
+        start = 1'b0;
+
+        while(busy == 1'b0) begin
+            @(posedge clk);
+        end
+        while (busy == 1'b1) begin
+            @(posedge clk);
+        end
+
     end
 
 // End of your code

@@ -38,7 +38,8 @@ always_comb begin
         idle: begin
             if (start == 1'b1) begin
                 clr_prod = 1'b1;
-                next_state = clr;   
+                next_state = clr;            
+                busy = 1'b0;
             end
             else begin
                 busy = 1'b0;

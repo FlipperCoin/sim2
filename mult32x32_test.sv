@@ -21,9 +21,9 @@ module mult32x32_test;
     initial begin
         clk = 1'b0;
         start = 1'b0;
-        
+
         reset = 1'b1;
-        repeat(4) begin
+        repeat(5) begin
             @(posedge clk);
         end
         reset = 1'b0;
