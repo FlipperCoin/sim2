@@ -12,6 +12,12 @@ module mult32x32 (
 // Put your code here
 // ------------------
 
+logic [1:0] a_sel;
+logic b_sel, upd_prod, clr_prod;
+logic [2:0] shift_sel;
+
+mult32x32_arith arith(.clk(clk),.reset(reset),.a(a),.b(b),.a_sel(a_sel),.b_sel(b_sel),.shift_sel(shift_sel),.upd_prod(upd_prod),.clr_prod(clr_prod),.product(product));
+mult32x32_fsm fsm(.clk(clk),.reset(reset),.start(start),.busy(busy),.a_sel(a_sel),.b_sel(b_sel),.shift_sel(shift_sel),.upd_prod(upd_prod),.clr_prod(clr_prod));
 
 // End of your code
 

@@ -9,9 +9,42 @@ module mult32x32_test;
     logic busy;           // Multiplier busy indication
     logic [63:0] product; // Miltiplication product
 
-// Put your code here
-// ------------------
+    // Put your code here
+    // ------------------
 
-// End of your code
+    mult32x32 m32(.clk(clk),.reset(reset),.start(start),.a(a),.b(b),.busy(busy),.product(product));
+
+    always begin
+        #10 clk = ~clk;
+    end
+
+    initial begin
+        clk = 1'b0;
+        start = 1'b0;
+        
+        reset = 1'b1;
+        repeat(4) begin
+            @(posedge clk);
+        end
+        reset = 1'b0;
+
+        a = 32'd208447599;
+        b = 32'd305014243;
+        
+        @(posedge clk);
+
+        start = 1'b1;
+
+        @(posedge clk);
+
+        start = 1'b0;
+
+        while (busy == 1'b1) begin
+            @(posedge clk);
+        end
+
+    end
+
+    // End of your code
 
 endmodule
